@@ -1,4 +1,4 @@
-Created for Torus Biosystems by Jovan Koledin
+Created for Torus Biosystems by Jovan Koledin during his 2022 summer internship
 ThermoMatrix.m was written to be used inconjuction with ThermoFischers Multiple Primer Analyzer.
 It takes the direct text output from thermo fischer(1) and generates a nxn matrix displaying primer-primer interactions for PCR testing.
 
