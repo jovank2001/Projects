@@ -84,31 +84,22 @@ for i = 1:num_runs
     %Find final variant and close file
     if isequal(winners, Wuhan)
         fprintf(fid, "This corresponds to the Wuhan variant.\n");
-        fprintf("This corresponds to the Wuhan variant.\n");
     elseif isequal(winners, Alpha)
         fprintf(fid, "This corresponds to the Alpha variant.\n");
-        fprintf("This corresponds to the Alpha variant.\n");
     elseif isequal(winners, Beta)
         fprintf(fid, "This corresponds to the Beta variant.\n");
-        fprintf("This corresponds to the Beta variant.\n");
     elseif isequal(winners, Gamma)
         fprintf(fid, "This corresponds to the Gamma variant.\n");
-        fprintf("This corresponds to the Gamma variant.\n");
     elseif isequal(winners, Delta)
         fprintf(fid, "This corresponds to the Delta variant.\n");
-        fprintf("This corresponds to the Delta variant.\n");
     elseif isequal(winners, Kappa)
         fprintf(fid, "This corresponds to the Kappa variant.\n");
-        fprintf("This corresponds to the Kappa variant.\n");
     elseif isequal(winners, OmicronBA1)
         fprintf(fid, "This corresponds to the Omicron BA.1 variant.\n");
-        fprintf("This corresponds to the Omicron BA.1 variant.\n");
     elseif isequal(winners, OmicronBA2)
         fprintf(fid, "This corresponds to the Omicron BA.2 variant.\n");
-        fprintf("This corresponds to the Omicron BA.2 variant.\n");
     else
         fprintf(fid, "Couldnt find a variant match.\n");
-        fprintf("Couldnt find a variant match.\n");
     end
        
     fclose(fid);
