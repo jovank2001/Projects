@@ -1,0 +1,6 @@
+The best mutation for the 484 set: 484K
+The best mutation for the 452 set: 452L
+The best mutation for the 501 set: 501Y
+The best mutation for the 417 set: 417N
+The best mutation for the 614 set: 614G
+This corresponds to the Beta variant.
