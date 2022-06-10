@@ -1,7 +1,7 @@
 clear, clc
 %Written by Jovan Koledin on 6/10/2022 for Torus BioSystems
 %START THIS PROGRAM INSIDE A RUN FOLDER CONTAINING IN_FILE_NAME 
-%IN_FILE_NAME: Has the enough of each files name to make it unique
+%IN_FILE_NAME: Has enough of each files name to make it unique, seperated by newline
 %OUT_FILE_NAME: Where you want the variant name printed out
 IN_FILE_NAME = 'runs.txt';
 OUT_FILE_NAME = 'SARS- COV-2 Variants.txt';
