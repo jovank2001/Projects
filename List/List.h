@@ -1,8 +1,5 @@
 /*
-Name: Jovan Koledin
-Date Submitted: March 20, 2021
-Assignment: Project 10
-Description: Program illustrates a linked list with head and tail pointers
+Written by Jovan Koledin, program illustrates a linked list with head and tail pointers
 */
 #ifndef LIST_H
 #define LIST_H
