@@ -1,5 +1,5 @@
 %Program that takes in pictures of arrays on slides in a .tif format and
-%outputs their flourescence ratios on top of the original picture.
+%Outputs their flourescence ratios on top of the original picture, and tablular representation of ratios
 %Input: Array pictures in .tif format in file TestPics
 %Output: Array pictures with overlayed spot ratios in AssayValidationOut
 
