@@ -12,7 +12,8 @@ python3 runner.py
 -Edit runner.py so it is grabbing Test_data.xlsx then,
 python3 runner.py
 
--Edit main.py making sure you entered filenames correctly then,
+-Edit main.py making sure you entered file names correctly then,
 python3 main.py
+
 
 
