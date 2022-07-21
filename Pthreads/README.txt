@@ -1,3 +1,4 @@
-Worked on by Jovan Koledin during CPSC 346
-Pthreads producer consumer Operating systems class project to get familiar with threads and semaphores
+Worked on by Jovan Koledin for multithreading practice
+Pthreads producer consumer Operating systems project
+
 
