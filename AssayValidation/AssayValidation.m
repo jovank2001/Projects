@@ -11,7 +11,7 @@ radius_range = [45 50]; %range of acceptable radii for spot finding
 rnd = -1; %used for rounding
 int_corr = 0.2; %used for re-scaling image for masking
 border = 20; %number of pixels from each edge for zoomed-in crop of array
-
+threshold = 2; %Acceptable spot ratio
 
 %Find Files
 list=dir('**/*.tif');
@@ -38,7 +38,7 @@ for n = 1:num_images
 
     %Get user inputs 
     input(1) = 6; input(2) = 6;
-    yy = inputdlg('Enter number of rows and number of columns separated by a space',fname, [1 50]);
+    yy = inputdlg('Enter number of rows and columns with space between:',fname, [1 50]);
     input = str2num(yy{:});
     num_rows = input(1);
     num_cols = input(2);
@@ -90,11 +90,8 @@ for n = 1:num_images
     %Average intensity of each positive control spot
     avg_control_int = (top_left_spot + top_right_spot + two_three_spot + ...
         bottom_left_spot + bottom_right_spot)/num_pos_control_spots;
-
-
-    %Create list containing each intensity ratio 
+    
     inten_ratio = (avg_control_int - avg_back_int) ./ (DATA{1,1} - avg_back_int);
-
     %Draw array intensity ratios (inten_ratio) on original pictures
     figure(3)
     hold on
@@ -102,7 +99,31 @@ for n = 1:num_images
     for i = 1:num_spots
         text(cen(i,1), cen(i,2) ,num2str(round(inten_ratio(i), 1)), 'color', 'r', 'fontsize', 12); 
     end
-    out_path = append('AssayValidationOut/',"AVO", fname(1:length(fname)-4), ".fig");
+    out_path = append('AssayValidationOut/',"AVI", fname(1:length(fname)-4), ".fig");
     savefig(out_path);
     
+    
+    %Create list containing each intensity ratio and table for excel sheet 
+    inten_ratio = inten_ratio';
+    spot_num = [1:num_spots]';
+    above_thresh = zeros(num_spots, 1);
+    for j = 1:num_spots
+        if inten_ratio(j) > threshold
+            above_thresh(j) = 1;
+        else
+            above_thresh(j) = 0;
+        end
+    end
+    
+    %Set PC values and write to excel
+    above_thresh(1) = NaN;
+    above_thresh(num_rows) = NaN;
+    above_thresh(num_rows + 3) = NaN;
+    above_thresh(num_spots - num_rows + 1) = NaN;
+    above_thresh(num_spots) = NaN;
+    T_out = table(spot_num, inten_ratio, above_thresh); 
+    out_path = append('AssayValidationOut/',"AVE", fname(1:length(fname)-4), ".xlsx");
+    writetable(T_out,out_path,'Sheet', 1);
+    
 end
+
