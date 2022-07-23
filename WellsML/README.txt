@@ -1,4 +1,3 @@
-#WellsML
 Trained Gradient Boosted Tree Model for Wells Fargo Machine Learning Competition
 To run:
 First run runner.py on TrainData.xlsx
