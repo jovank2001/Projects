@@ -1,4 +1,4 @@
-# Wells Fargo Machine Learning Competition
+#Wells Fargo Machine Learning Competition
 ## Summary
 We are given basic information about a transaction and must use that information to deterimine which category the transaction belongs to
 There are ten different categories we must sort the transactions into; Finance, Travel, Retail trade, etc...
