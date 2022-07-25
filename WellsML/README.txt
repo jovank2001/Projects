@@ -1,7 +1,6 @@
 #Wells Fargo Machine Learning Competition
 ## Summary
-We are given basic information about a transaction and must use that information to deterimine which category the transaction belongs to
-There are ten different categories we must sort the transactions into; Finance, Travel, Retail trade, etc...
+There are ten different categories we must sort the Wells fargo transactions into; Finance, Travel, Retail trade, etc...
 This program centers around a Wikipedia web scpraer that takes in the coalesced_brand name and searches it in the WikiAPI 
 It takes the summary from the WIKI page and then uses a TFID Vectorizer and stemmer on the summary page
 Then uses that binary representation as another input to the XGBoost Catogrizer model along with the merchant_cat_codes, amt, and is_international flag
