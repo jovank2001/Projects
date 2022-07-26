@@ -11,7 +11,7 @@ At first I tried to write my own web scraper that could take in a name and then 
 However I discoverd the hard way that google puts a limit on the amount of web requests you can do in a certain amount of time before it flags your ip as potentially malicious and blocks you from making more requests (HTTP ERROR 429)
 So I then tried to use a tor browser and IP switcher to fool Googles limitations, but unfortunately after many hours of trying I couldnt get the IP switching to  work properly and my time was limited so I decided to look into other solutions
 I tried to find databases that contained company names and a associated description and eventually found the Wikipedia API tool and wrote a much simpler webscraper in runner.py
-You can search directly on Wikipedia for a name and then grab whatever information Wikipedia has on that name, in my case I just pulled the summary page
+You can search directly on Wikipedia for a name and then grab whatever information Wikipedia has on that name, in my case I just pulled their summary page
 
 #### Blank merchant cat codes
 Approximately 40% of the merchant_cat_codes in the training data are left blank
