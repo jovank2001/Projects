@@ -1,5 +1,6 @@
 #Wells Fargo Machine Learning Competition
 ## Summary
+Led a team of University students to Design a machine learning algorithim for a Wells Fargo ML Challenge
 There are ten different categories we must sort the Wells fargo transactions into; Finance, Travel, Retail trade, etc...
 This program centers around a Wikipedia web scpraer that takes in the coalesced_brand name and searches it in the WikiAPI 
 It takes the summary from the WIKI page and then uses a TFID Vectorizer and stemmer on the summary page
