@@ -4,4 +4,4 @@ and locates Aluminum plates coming down assembly lines. Location is the position
 and the positions of the two width edges of the plate. PLCs from crane takes these measurements and uses them to pickup 
 plates and place them onto drop off wagons. 
 
-(CURRENTLY WAITING FOR KAISER APPROVAL TO POST MY SOURCE CODE AND RELVANT FACORY IMAGES)
+(CURRENTLY WAITING FOR KAISER APPROVAL TO POST MY SOURCE CODE AND RELEVANT FACORY IMAGES)
