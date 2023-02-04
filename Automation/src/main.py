@@ -4,7 +4,6 @@ Draws over the camera feed with edges of detected plate
 Prints width of detected plate
 Written by Jovan Koledin for Kaiser Aluminum
 '''
-import utilsExtend
 import utils
 
 #Path to background image with which every subsequent image will be subtracted
