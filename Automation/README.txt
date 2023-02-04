@@ -4,4 +4,7 @@ and locates Aluminum plates coming down assembly lines. Location is the position
 and the positions of the two width edges of the plate. PLCs from crane takes these measurements and use them to pickup 
 plates and place them onto drop off wagons. 
 
-(CURRENTLY WAITING FOR KAISER APPROVAL TO POST MY SOURCE CODE AND RELEVANT FACORY IMAGES)
+The main idea behind the plate detection:
+
+Subtract background image from every new frame->Apply binary threshold to image->Apply Canny edge detection->If edges are detected than we have a plate in frame->Locate the leftmost and rightmost edges.
+(See main.py for pathing details if you wish to try with own videos or images)
