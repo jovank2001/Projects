@@ -12,20 +12,30 @@ from moviepy.editor import *
 def create_global_background(background_path):
     '''
     Load background image into global variable a singular time 
-    instead of doing it every iteration of find_edge_subtraction
+    instead of doing it every iteration of find_edge_subtraction width find
     '''
     global background_image
     background_image = cv2.imread(background_path)
 
+
+def create_global_previous(background_path):
+    '''
+    Loads previous frame into global space for leading edge findings, 
+    starts with background image for frame zero
+    '''
+    global previous_frame
+    previous_frame = cv2.imread(background_path)
+
 def process_video(test_video, output_video):
     """
-    Read input video stream and produce a video file with detected lane lines.
+    Read input video stream and produce a video file with width lines.
         Parameters:
             test_video: Input video.
             output_video: A video file with detected lane lines.
     """
     input_video = VideoFileClip(test_video, audio=False)
-    processed = input_video.fl_image(find_edge_subtraction)
+    processed_leading = input_video.fl_image(find_leading_edge)
+    processed = processed_leading.fl_image(find_width_edges)
     processed.write_videofile(output_video, audio=False)
 
 def find_lines(n):
@@ -33,7 +43,6 @@ def find_lines(n):
     Find leftmost and rightmost lines from given point coordinates
     Format for each line = [x1, y1, x2, y2]
     Returns: [line1, line2]
-
     '''
     #Assign specific edges of plate coordinates in arrays
     bottom_left = [10000, 0]
@@ -87,13 +96,13 @@ def process_image(input_path, output_path):
     Return processed image to ouput path
     '''
     image = cv2.imread(input_path)
-    processed_image = find_edge_subtraction(image)
+    image_leading = find_leading_edge(image)
+    processed_image = find_width_edges(image_leading)
     cv2.imwrite(output_path, processed_image)
 
-def find_edge_subtraction(new_frame):
+def find_width_edges(new_frame):
     '''
-    Subtract new frame from background image and find the bounding box of image difference
-    Draws lines over new_frame and returns drawn over image
+    Finds width edges of plate coming down assembly line
     '''
     
     #Load images
@@ -141,3 +150,47 @@ def find_edge_subtraction(new_frame):
     # Return the final image with edges drawn on.
     return imout
  
+def find_leading_edge(new_frame):
+    '''
+    Finds the leading edge and point of the plate coming down the assembly line
+    '''
+    #Load images
+    global previous_frame
+    imout = new_frame
+
+
+    #Subtract and reassign previous_frame to new_frame for next iteration
+    image = cv2.subtract(new_frame, previous_frame)
+    previous_frame = new_frame
+
+    #Enchance
+    new_image = np.zeros(image.shape, image.dtype)
+    alpha = 1.5 # Simple contrast control
+    beta = 100    # Simple brightness control
+    new_image = cv2.convertScaleAbs(image, alpha=alpha, beta=beta)
+
+    #Threshhold image
+    image_cvt = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    ret, image_thresh = cv2.threshold(image_cvt, 50, 255, cv2.THRESH_BINARY)
+
+    #Find lowest line and associated lowest point
+    lowest_line = [0,0,0,0]
+    edges = cv2.Canny(image_thresh, 75, 150)
+    lines = cv2.HoughLinesP(edges, 1, np.pi/180, 30, maxLineGap=25)
+    if (lines is None): #Check for no lines being detected
+       return new_frame
+    for line in lines:
+        x1, y1, x2, y2 = line[0]
+        if (y1 > lowest_line[1]):
+            lowest_line = line[0]
+    #Draw lowest line
+    #cv2.line(imout, lowest_line[0:2], lowest_line[2:4], (0, 0, 255), 3)
+
+
+    #Draw lowest point
+    lowest_point = lowest_line[0:2]
+    if (lowest_line[3] > lowest_line[1]):
+        lowest_point = lowest_line[2:4]
+    imout = cv2.circle(imout, lowest_point, radius=5, color=(255, 0, 0), thickness=10)
+
+    return imout
