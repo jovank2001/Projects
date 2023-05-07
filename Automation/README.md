@@ -30,7 +30,7 @@ Using functions:
 ## 3. Performance
 
 ### Accuracy
-* Able to detect plate width within an inch. 
+* Able to detect plate width within +/- 1.195 inches. 
 * NOTE: Center skew values have not been tested
 * NOTE 2: Plate width detection has seen limited testing
 ### Speed
