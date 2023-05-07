@@ -38,11 +38,8 @@ Using functions:
 
 ## 4. Software Framework and Tooling
 
-* [Subtraction/PlateLocateTest.py](https://github.com/ENSC41/ENSC41-Pick-and-Place/blob/main/Subtraction/PlateLocateTest.py) for setting paths for input and output videos and images for processing as well as the pixel threshold for when to call the width detection. 
-* [Subtraction/PlateLocateGood.py](https://github.com/ENSC41/ENSC41-Pick-and-Place/blob/main/Subtraction/PlateLocateGood.py) containing functions for video and image processing such as for finding the width and leading edge of the moving plate. Can acquire values for multiple plate runs.
-* [Wagons/Code/WagonPlateTest.py](https://github.com/ENSC41/ENSC41-Pick-and-Place/blob/main/Wagons/Code/WagonPlateDetect.py) for setting paths for input and output videos and images for processing
-* [Wagons/Code/WagonPlateTest.py](https://github.com/ENSC41/ENSC41-Pick-and-Place/blob/main/Wagons/Code/WagonPlateDetect.py) containing functions to detect if there are wagons and plates in frames of a video or in an image
-
+* [RunStatic.py] for setting paths for input and output videos and images for processing as well as the pixel threshold for when to call the width detection. 
+* [PlateLocateRaw.py] containing functions for video and image processing such as for finding the width and leading edge of the moving plate. Also where to set width pixel locations and where to recalibrate if input stream/videos are not 1920x1080 resolution.
 ## 5. Running the Code
 
 ### Instructions to Setup Software Environment
@@ -55,28 +52,13 @@ Using functions:
 1. Enter `cd ENSC41-Pick-and-Place/Subtraction`
 2. Enter editor to [RunStatic.py](https://github.com/ENSC41/ENSC41-Pick-and-Place/blob/main/src/RunStatic.py)
 3. Inside the file set the `PROCESS_VIDEO` and `PROCESS_IMAGE` boolean if wanting to process videos or images
-4. Upload an image from camera with no plate to the [ENSC41/Pick-and-Place/Images](https://github.com/ENSC41/ENSC41-Pick-and-Place/tree/main/Images) folder
+4. Upload an image from camera with no plate to the [/Images/] folder
 5. Set the path to that image in the variables `BACKGROUND_PATH_VIDEO='../Images/<background.png>'`along with `BACKGROUND_PATH_IMAGE`
-6. Upload a video to be processed to the [ENSC41/Pick-and-Place/test_videos](https://github.com/ENSC41/ENSC41-Pick-and-Place/tree/main/test_videos) folder or a image to processed to the [ENSC41/Pick-and-Place/Images](https://github.com/ENSC41/ENSC41-Pick-and-Place/tree/main/Images) folder
+6. Upload a video to be processed to the [/test_videos/] folder or a image to processed to the [ENSC41/Pick-and-Place/Images](https://github.com/ENSC41/ENSC41-Pick-and-Place/tree/main/Images) folder
 7. Set the path to that video to be processed `VIDEO_PATH = '../test_videos/<in_vid.mp4>` or image to be processed `IMAGE_PATH = '../Images/<in_pic.png>'`
 8. Set the path to where the video should be outputted `OUT_VIDEO_PATH = '../output_videos/<out_vid.mp4>'` or image to be processed `OUT_IMAGE_PATH = '../Images/<out_img.png>'`
 9. Edit constants inside PlateLocateRaw.py to ensure properly calibrated pixel locations
    - NOTE: ^ If PlateLocate class is not receiving frames in 1920X1280 resolution these will all need to be calibrated accordingly ^
    - NOTE 2:  ^^ If you are not using camera 118 or it has been moved at all these will all need to be calibrated accordingly ^^
 10. Enter command `python RunStatic.py`
-
-### Instructions to Run Wagon Detection
-1. Enter `cd ENSC41-Pick-and-Place/Wagons/Code`
-2. Enter editor to [WagonPlateDetect.py](https://github.com/ENSC41/ENSC41-Pick-and-Place/blob/main/Wagons/Code/WagonPlateDetect.py)
-3. Inside the file set:
-   - `PROCESS_IMAGE` boolean for image processing
-      - `WAGON_PLATE_DETECT` to true for wagon deteciton, false for plate detection
-   - `PROCESS_WAGON_VIDEO` boolean for wagon video processing
-   - `PROCESS_PLATE_VIDEO` boolean for plate video processing
-4. Upload a background image without a plate to the [ENSC41/Pick-and-Place/Images/Input](https://github.com/ENSC41/ENSC41-Pick-and-Place/tree/main/Images/Input) folder
-5. Set the path to that image in the variables `BACKGROUND_IMAGE_PATH='../Images/<background.png>'`
-6. Upload a video to be processed to the [ENSC41/Pick-and-Place/Videos/Input](https://github.com/ENSC41/ENSC41-Pick-and-Place/tree/main/Videos/Input) folder or a image of a wagon and plate to processed to the [ENSC41/Pick-and-Place/Images/Input](https://github.com/ENSC41/ENSC41-Pick-and-Place/tree/main/Images/Input) folder
-7. Set the path to that videos to be processed `WAGON_VIDEO_PATH = '../Videos/Input/<in_wagon_vid.mp4>` and `PLATE_VIDEO_PATH = '../Images/Input/<in_plate_vid.mp4>'`or images to be processed with `WAGON_IMAGE_PATH = '../Images/Input/<in_wagon_pic.png>'` and `PLATE_IMAGE_PATH = '../Images/Input/in_plate_pic.png'`
-8. Set the path to where the video should be outputted `OUT_VIDEO_PATH = '../Videos/Input/<out_vid.mp4>'` or image to be processed `OUT_IMAGE_PATH = '../Images/Input/<out_img.png>'`
-9. Enter command `python WagonPlateDetect.py`
 
