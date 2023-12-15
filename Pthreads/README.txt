@@ -1,4 +1,4 @@
-Worked on by Jovan Koledin for multithreading practice in CPSC 346
+Worked on by Jovan Koledin for multithreading practice
 Pthreads producer consumer Operating systems project
 
 
