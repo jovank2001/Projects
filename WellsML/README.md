@@ -18,7 +18,7 @@ Worked on project starting on June 20th through July 13th
 Given transactions are in TrainData.xlsx and TestData.xlsx
 
 #### To run:
-First run runner.py on TrainData.xlsx
-Then run runner.py on TestData.xlsx
-Finally run main.py with filenames entered correctly
-OutPut is written to TestDataOut.xlsx
+First run runner.py on TrainData.xlsx, 
+then run runner.py on TestData.xlsx, 
+finally run main.py with filenames entered correctly, 
+output is written to TestDataOut.xlsx
