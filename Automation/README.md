@@ -3,7 +3,6 @@
 ## 1. Overview
 This repository contains a collection of Python scripts that can identify and localize aluminum plates and wagons from top down cameras.
 Written by Gonzaga Univeristy Senior Design Team ENSC-41 (Jovan Koledin, Ethan Higa, Dylan Brown, and Jason Dhanota)
-NOTE: All code in this repository was written by Jovan Koledin
 Customer: Kaiser Aluminum
 
 ## 2. Features
