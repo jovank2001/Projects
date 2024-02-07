@@ -8,7 +8,7 @@ Customer: Kaiser Aluminum
 ## 2. Features
 
 ### Design Methodology
-In order to locate the plates coming down the assembly line, new frames from top down cameras are subtracted from previous frames. The results of this subtraction are then analyzed, if a plate is coming down the assembly line the difference between the two frames will show up as the plate since the backgound are for the most part static.
+In order to locate the plates coming down the assembly line, new frames from top down cameras are subtracted from previous frames. The results of this subtraction are then analyzed, if a plate is coming down the assembly line the difference between the two frames will show up as the plate since the backgound is for the most part static.
 
 ### Moviepy Methods
 Using functions:
