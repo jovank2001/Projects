@@ -5,7 +5,7 @@ This repository contains a collection of Python scripts that can identify and lo
 Written by Gonzaga Univeristy Senior Design Team ENSC-41 (Jovan Koledin, Ethan Higa, Dylan Brown, and Jason Dhanota)
 Customer: Kaiser Aluminum
 
-<video src="/EXAMPLE/Example_Output.mp4" width="320" height="240" controls></video>
+[Watch Example Output](https://github.com/jovank2001/Projects/blob/main/Automation/EXAMPLE/Example_Output.mp4)
 
 ## 2. Features
 
