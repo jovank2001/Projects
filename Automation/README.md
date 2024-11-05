@@ -1,4 +1,4 @@
-# ENSC41-Pick-and-Place: Senior Design Project for Pick and Place Technology
+# ENSC41-Pick-and-Place: Senior Capstone Project for Pick and Place Technology
 
 ## 1. Overview
 This repository contains a collection of Python scripts that can identify and localize aluminum plates and wagons from top down cameras.
